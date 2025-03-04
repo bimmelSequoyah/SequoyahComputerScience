@@ -20,7 +20,16 @@ a, a:visited {
 }
 
 
+.img-with-text {
+    text-align: justify;
+    width: 200px;
+}
 
+.img-with-text img {
+    width:100%
+    display: block;
+    margin: 0 auto;
+}
 
 
 /* Buttons */
