@@ -8,17 +8,9 @@
 /* Body */
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #f4f4f4; /* Light background color */
-    color: #333; /* Dark text color */
-    line-height: 1.6;
-}
-
-
-/* Main Content */
-main {
-    padding: 40px 20px;
-    background-color: #3d5528; /* Sequoyah primary color */
+    background-color: #3d5528; /* Light background color */
     color: white;
+    line-height: 1.6;
     padding: 20px 0;
     text-align: center;
 }
