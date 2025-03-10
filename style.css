@@ -25,13 +25,14 @@ a, a:visited {
     gap: 20px;
     justify-content: center;
     padding: 20px;
+    margin: auto auto;
 }
 
 .artpiece {
     padding: 10px;
-    text-align: left;
+    text-align: center;
     width: 250px;
-    margin: 40px;
+    margin: auto;
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
