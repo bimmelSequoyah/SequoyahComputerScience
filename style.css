@@ -44,6 +44,22 @@ a, a:visited {
     display: block;
 }
 
+.tooltip {
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #efcf9c;
+    color: rgb(0, 0, 0);
+    border-radius: 1px solid black;
+    font-size: 10px;
+    padding: 0px 5px;
+    display: none;
+    box-shadow: none; /* No modern shadows */
+    pointer-events: none; /* Prevent interference with cursor */
+    max-width: 250px; /* Set max width for tooltip */
+    word-wrap: break-word; /* Ensure long words break properly */
+    text-align: left;
+}
+
 .name {
     font-style: italic;
     font-weight: 100;

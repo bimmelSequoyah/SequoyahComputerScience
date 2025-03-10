@@ -10,34 +10,56 @@
     <br><br><br>
     <div class="gallery">
         <div class="artpiece">
-            <img src="LissajousMalickDeighton.gif">
+            <img src="LissajousMalickDeighton.gif" alt="" class="artImage">
             <div class="name">Malick Deighton</div>
             <span class="title">Lissajous Curve</span>
             <span class="language">(JavaScript)</span>
         </div>
 
         <div class="artpiece">
-            <img src="LissajousHenryHolcomb.gif">
+            <img src="LissajousHenryHolcomb.gif" alt="I have created my artwork to fold in on itself and then scatter into a jumbled mess of white noise in a way." class="artImage">
             <div class="name">Henry Holcomb</div>
             <span class="title">Lissajous Curve</span>
             <span class="language">JavaScript</span>
         </div>
 
         <div class="artpiece">
-            <img src="LissajousYoshiPeretti.gif">
+            <img src="LissajousYoshiPeretti.gif" alt="A web of blue lines that is not rotating, just losing points/becoming more jagged. I added trails because they make it harder to try and use your eyes to track what is happening." class="artImage">
             <div class="name">Yoshi Peretti</div>
-            <span class="title">Lissajous Curve</span>
+            <span class="title">whirlWeb</span>
             <span class="language">JavaScript</span>
         </div>
 
         <div class="artpiece">
-            <a target="_blank" href="https://editor.p5js.org/bimmel/full/sbfmITGGl">
-                <img src="NBody.png">
-            </a>
-            <div class="name">Bradley Immel</div>
-            <span class="title">N-body</span>
+            <img src="LissajousOwenHawxhurst.gif" alt="Uses square roots mixed with sine waves." class="artImage">
+            <div class="name">Owen Hawxhurst</div>
+            <span class="title">Non Repeating pattern</span>
             <span class="language">JavaScript</span>
         </div>
+
+        <div id="tooltip" class="tooltip"></div>
+
+
+        <script>
+            const artpieces = document.querySelectorAll(".artImage");
+            const tooltip = document.getElementById("tooltip");
+    
+            artpieces.forEach(artpiece => {
+                artpiece.addEventListener("mouseover", (event) => {
+                    tooltip.textContent = event.target.alt; // Set tooltip text dynamically
+                    tooltip.style.display = "block";
+                });
+    
+                artpiece.addEventListener("mousemove", (event) => {
+                    tooltip.style.left = event.pageX + 10 + "px";
+                    tooltip.style.top = event.pageY + 10 + "px";
+                });
+    
+                artpiece.addEventListener("mouseout", () => {
+                    tooltip.style.display = "none";
+                });
+            });
+        </script>
 
 
         
