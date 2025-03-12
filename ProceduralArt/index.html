@@ -86,6 +86,24 @@
             <span class="language">JavaScript</span>
         </div>
 
+        <div class="artpiece gif">
+            <img src="./gif/LissajousOliverDauberman.gif" 
+                alt=" For this I wanted to attempt to make the infinity symbol. Generally, I think I succeeded though it is a little wide. I like how it looks like it turns into an eye mask at one point before it freaks out and eats itself" 
+                class="artImage">
+            <div class="name">Oliver Dauberman</div>
+            <span class="title">Red Infinity</span>
+            <span class="language">JavaScript</span>
+        </div>
+
+        <div class="artpiece gif">
+            <img src="./gif/LissajousAidanByrne.gif" 
+                alt="I chose this style because I thought it was a satisfying affect that can be viewed in different ways. One way to view it is that it looks like it is 'expanding' and 'contracting', another way is that it is rolling (like a tire) toward the camera. This satisfying affect was created with a w1 equaling 5 and a w2 equaling 4 with a speed of phi increasing at 0.01 each frame." 
+                class="artImage">
+            <div class="name">Aidan Byrne</div>
+            <span class="title">hypnotizing</span>
+            <span class="language">JavaScript</span>
+        </div>
+
         <div id="tooltip" class="tooltip"></div>
 
 
@@ -121,7 +139,7 @@
         
                     // Extract first frame dynamically
                     const staticSrc = await extractFirstFrame(animatedSrc);
-                    img.src = staticSrc;
+                    // img.src = staticSrc;
                     img.style.visibility = "visible";
         
                     let preloadedGif;
@@ -138,12 +156,12 @@
                         }
         
                         // Force reload and switch to GIF
-                        img.src = animatedSrc + "?t=" + new Date().getTime();
+                        // img.src = animatedSrc + "?t=" + new Date().getTime();
                     });
         
                     artpiece.addEventListener("mouseout", () => {
                         tooltip.style.display = "none";
-                        img.src = staticSrc;
+                        // img.src = staticSrc;
                     });
         
                     artpiece.addEventListener("mousemove", (event) => {
