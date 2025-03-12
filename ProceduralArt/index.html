@@ -4,6 +4,7 @@
     <title>Procedural Art</title>
     <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <h1>Procedural Art – Spring 2025</h1>
@@ -104,82 +105,19 @@
             <span class="language">JavaScript</span>
         </div>
 
+        <div class="artpiece gif">
+            <img src="./gif/LissajousBenjaminSilva.gif" 
+                alt="While messing around with the animations, I got this funky little thing. It kinda reminded me of a guy with a nasty hunchback pacing back and forth." 
+                class="artImage">
+            <div class="name">Benjamin Silva</div>
+            <span class="title">Pacing</span>
+            <span class="language">JavaScript</span>
+        </div>
+
         <div id="tooltip" class="tooltip"></div>
 
-
-        <script>
-            async function extractFirstFrame(gifSrc) {
-                return new Promise((resolve) => {
-                    const canvas = document.createElement("canvas");
-                    const ctx = canvas.getContext("2d");
-                    const tempImg = new Image();
-                    tempImg.crossOrigin = "anonymous";
-        
-                    tempImg.onload = () => {
-                        canvas.width = tempImg.width;
-                        canvas.height = tempImg.height;
-                        ctx.drawImage(tempImg, 0, 0);
-                        resolve(canvas.toDataURL("image/png"));
-                    };
-        
-                    tempImg.src = gifSrc;
-                });
-            }
-        
-            async function setupGifs() {
-                const gifArtpieces = document.querySelectorAll(".artpiece.gif");
-                const tooltip = document.getElementById("tooltip");
-        
-                for (const artpiece of gifArtpieces) {
-                    const img = artpiece.querySelector("img");
-                    if (!img) continue;
-        
-                    const animatedSrc = img.src;
-                    img.style.visibility = "hidden";
-        
-                    // Extract first frame dynamically
-                    const staticSrc = await extractFirstFrame(animatedSrc);
-                    // img.src = staticSrc;
-                    img.style.visibility = "visible";
-        
-                    let preloadedGif;
-        
-                    // Preload the animated GIF on hover
-                    artpiece.addEventListener("mouseover", () => {
-                        tooltip.textContent = img.alt;
-                        tooltip.style.display = "block";
-                        
-                        // Preload the GIF
-                        if (!preloadedGif) {
-                            preloadedGif = new Image();
-                            preloadedGif.src = animatedSrc;
-                        }
-        
-                        // Force reload and switch to GIF
-                        // img.src = animatedSrc + "?t=" + new Date().getTime();
-                    });
-        
-                    artpiece.addEventListener("mouseout", () => {
-                        tooltip.style.display = "none";
-                        // img.src = staticSrc;
-                    });
-        
-                    artpiece.addEventListener("mousemove", (event) => {
-                        tooltip.style.left = event.pageX + 10 + "px";
-                        tooltip.style.top = event.pageY + 10 + "px";
-                    });
-                }
-            }
-        
-            document.addEventListener("DOMContentLoaded", setupGifs);
-        </script>
-        
-        
-        
-
-
-        
-
     </div>
+
+    <script src="./script.js"></script>
 </body>
 </html>
