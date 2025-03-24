@@ -23,16 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         for (const artpiece of artpieces) {
             const img = artpiece.querySelector("img");
-            if (!img || !artpiece.classList.contains("gif")) continue;
-
-            const animatedSrc = img.src;  // Store GIF source.
-            img.style.visibility = "hidden";  // Hide it during processing.
-
-            // Extract first frame dynamically.
-            const staticSrc = await extractFirstFrame(animatedSrc);
-            img.src = staticSrc;  // Set the first frame as the default.
-            img.style.visibility = "visible";  // Show it once ready.
-
             // Hover effects
             artpiece.addEventListener("mouseover", () => {
                 tooltip.textContent = img.alt;  // Show tooltip text.
@@ -50,6 +40,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 tooltip.style.left = event.pageX + 10 + "px";
                 tooltip.style.top = event.pageY + 10 + "px";
             });
+
+            // for gifs only
+            if (!img || !artpiece.classList.contains("gif")) continue;
+
+            const animatedSrc = img.src;  // Store GIF source.
+            img.style.visibility = "hidden";  // Hide it during processing.
+
+            // Extract first frame dynamically.
+            const staticSrc = await extractFirstFrame(animatedSrc);
+            img.src = staticSrc;  // Set the first frame as the default.
+            img.style.visibility = "visible";  // Show it once ready.
         }
     }
 
