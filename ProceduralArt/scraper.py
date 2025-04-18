@@ -75,11 +75,13 @@ for idx, row in df.iloc[start_row:end_row].iterrows():
     img_src = f"./{folder}/{filename}"
     source_link = f'<a class="source-link" href="{link}" target="_blank">(source)</a>' if link.startswith("http") else ""
 
+    div_class = "artpiece gif" if ext == ".gif" else "artpiece"
+
     block = f'''
-    <div class="artpiece">
+    <div class="{div_class}">
         <img src="./{ext[1:]}/{filename}" 
-             alt="{alt}" 
-             class="artImage">
+            alt="{alt}" 
+            class="artImage">
         <div class="name">{name}</div>
         <span class="title">{title}</span>
         <span class="language">JavaScript
@@ -87,6 +89,7 @@ for idx, row in df.iloc[start_row:end_row].iterrows():
         </span>
     </div>
     '''
+
 
     html_blocks.append(block)
 
