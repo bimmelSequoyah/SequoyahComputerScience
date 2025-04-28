@@ -60,6 +60,9 @@ for idx, row in df.iloc[start_row:end_row].iterrows():
     elif "animation" in medium:
         ext = ".gif"
         folder = gif_folder
+    elif "simulation" in medium:
+        ext = ".png"
+        folder = png_folder
     else:
         print(f"⚠️ Skipping {name} — Unknown medium '{medium}'")
         continue
@@ -77,20 +80,35 @@ for idx, row in df.iloc[start_row:end_row].iterrows():
 
     div_class = "artpiece gif" if ext == ".gif" else "artpiece"
 
-    block = f'''
-    <div class="{div_class}">
-        <img src="./{ext[1:]}/{filename}" 
-            alt="{alt}" 
-            class="artImage">
-        <div class="name">{name}</div>
-        <span class="title">{title}</span>
-        <span class="language">JavaScript
-            {source_link}
-        </span>
-    </div>
-    '''
+    if "simulation" in medium:
 
-
+        block = f'''
+        <div class="{div_class}">
+            <a href="{link}" target="_blank">
+                <img src="./{ext[1:]}/{filename}" 
+                    alt="{alt}" 
+                    class="artImage">
+            </a>
+            <div class="name">{name}</div>
+            <span class="title">{title}</span>
+            <span class="language">JavaScript
+                {source_link}
+            </span>
+        </div>
+        '''
+    else:
+        block = f'''
+        <div class="{div_class}">
+            <img src="./{ext[1:]}/{filename}" 
+                alt="{alt}" 
+                class="artImage">
+            <div class="name">{name}</div>
+            <span class="title">{title}</span>
+            <span class="language">JavaScript
+                {source_link}
+            </span>
+        </div>
+        '''
     html_blocks.append(block)
 
 # Save HTML
