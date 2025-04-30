@@ -6,8 +6,8 @@
     <title>Unity Web Player | WokeIndianaJonesAtlasJames</title>
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
-    <canvas id="unity-canvas" width=960 height=600 tabindex="-1" style="width: 960px; height: 600px; background: #231F20"></canvas>
-    <script src="Build/WokeIndianaJonesAtlasJames.loader.js"></script>
+    <canvas id="unity-canvas" width=1066 height=600 tabindex="-1" style="width: 1066px; height: 600px; background: #231F20"></canvas>
+    <script src="Build/WokeIndianaJonesAtlasJamesFullRes.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -26,9 +26,9 @@
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
         arguments: [],
-        dataUrl: "Build/WokeIndianaJonesAtlasJames.data",
-        frameworkUrl: "Build/WokeIndianaJonesAtlasJames.framework.js",
-        codeUrl: "Build/WokeIndianaJonesAtlasJames.wasm",
+        dataUrl: "Build/WokeIndianaJonesAtlasJamesFullRes.data",
+        frameworkUrl: "Build/WokeIndianaJonesAtlasJamesFullRes.framework.js",
+        codeUrl: "Build/WokeIndianaJonesAtlasJamesFullRes.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Sequoyah School",
         productName: "WokeIndianaJonesAtlasJames",
