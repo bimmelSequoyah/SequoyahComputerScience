@@ -8,8 +8,7 @@ sheet_id = "1LJHIka0mOQquqnMhxm28p6GZxIkpLLzaYo2JnBRMztA"
 sheet_csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
 
 # Prompt for project prefix and range
-project_prefix = input("Enter project name prefix (e.g. 'Gravity'): ").strip()
-start_row = int(input("Start row number (1-based index): ")) - 1
+start_row = int(input("Start row number (1-based index): ")) - 2
 end_row = int(input("End row number (inclusive): "))
 
 # Load sheet directly from URL
@@ -19,9 +18,10 @@ df = pd.read_csv(sheet_csv_url)
 name_col = "Firstname Lastname"
 title_col = "Title of artwork"
 desc_col = "Concise description of artwork and artistic choices"
-upload_col = "Upload your file (.png, .gif)\n(If your project is a p5.js simulation link, still upload a .png thumbnail of 1 frame)"
+upload_col = "Upload your file (.png, .gif)\n(If your project is a p5.js simulation link, please upload a .png thumbnail of 1 frame)"
 p5_col = "p5.js Fullscreen link"
 medium_col = "Medium"
+project_col = "Which project is this?"
 
 # Output directories (must already exist)
 png_folder = "ProceduralArt/png"
@@ -41,6 +41,7 @@ for idx, row in df.iloc[start_row:end_row].iterrows():
     medium = str(row.get(medium_col, "")).lower()
     link = str(row.get(p5_col, "")).strip()
     drive_url = str(row.get(upload_col, "")).strip()
+    project_prefix = str(row.get(project_col, "")).strip()
 
     if "drive.google.com" not in drive_url:
         print(f"⚠️ Skipping {name} — No valid Drive link")
@@ -109,7 +110,7 @@ for idx, row in df.iloc[start_row:end_row].iterrows():
             </span>
         </div>
         '''
-    html_blocks.append(block)
+    html_blocks.insert(0, block)
 
 # Save HTML
 with open("ProceduralArt/output.html", "w") as f:
